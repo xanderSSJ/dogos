@@ -1,20 +1,16 @@
-// Elementos del DOM
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 const overlay = document.getElementById('overlay');
 const navItems = document.querySelectorAll('.nav-item');
 
-// Función para abrir/cerrar el menú
 function toggleMenu() {
     navMenu.classList.toggle('active');
     overlay.classList.toggle('active');
 }
 
-// Event listeners
 menuToggle.addEventListener('click', toggleMenu);
 overlay.addEventListener('click', toggleMenu);
 
-// Cerrar menú al hacer clic en un enlace
 navItems.forEach(item => {
     item.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -22,7 +18,6 @@ navItems.forEach(item => {
     });
 });
 
-// Smooth scrolling para enlaces de navegación
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -39,7 +34,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Añadir clase activa al elemento de navegación actual
 window.addEventListener('scroll', () => {
     let current = '';
     const sections = document.querySelectorAll('section');
@@ -60,7 +54,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Función para animar elementos al hacer scroll
 const animateOnScroll = () => {
     const elements = document.querySelectorAll('.menu-item, .promotion-card, .contact-item');
     
@@ -74,6 +67,5 @@ const animateOnScroll = () => {
     });
 };
 
-// Ejecutar animación al cargar la página y al hacer scroll
 window.addEventListener('load', animateOnScroll);
 window.addEventListener('scroll', animateOnScroll);
